@@ -34,6 +34,16 @@ function App() {
     },
   ]);
 
+  const handleSlideChange = (event) => {
+    setGoalsList((prevGoalsList) => {
+      return [
+        ...prevGoalsList,
+
+      ]
+    
+    })
+  }
+
   return (
     <div className="App">
       <h1>
@@ -42,7 +52,11 @@ function App() {
       <WeekCircles />
       <Header />
       <Filters />
-      <GoalsList goalsList={goalsList} />
+      <GoalsList 
+        goalsList={goalsList}
+        handleSlideChange={handleSlideChange} 
+      />
+
       <BottomMenu />
     </div>
   );

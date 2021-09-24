@@ -1,0 +1,33 @@
+.goal {
+  background-color: beige;
+  border-radius: 16px;
+  display: flex;
+  align-items: space-between;
+  justify-content: space-between;
+  padding: 24px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.goal input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.goalName, .goalName h2 {
+    flex-grow: 3;
+    display: inline-block;
+}
+
+.goalName i {
+    margin-right: 0.5rem;
+}
+
+.goalDetails {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
