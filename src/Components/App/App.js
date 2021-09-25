@@ -9,6 +9,7 @@ import BottomMenu from "../BottomMenu/BottomMenu";
 function App() {
   const [goalsList, setGoalsList] = useState([
     {
+      id: 1,
       name: "Eat Protein",
       icon: "food",
       measuring: "grams",
@@ -17,6 +18,7 @@ function App() {
       goalFrequency: "day",
     },
     {
+      id: 2,
       name: "Go to the Gym",
       icon: "gym",
       measuring: "units",
@@ -25,6 +27,7 @@ function App() {
       goalFrequency: "week",
     },
     {
+      id: 3,
       name: "Meditate",
       icon: "mind",
       measuring: "minutes",
@@ -44,6 +47,10 @@ function App() {
     })
   }
 
+  const handleDelete = (goalIdToDelete) => {
+    setGoalsList(prev => prev.filter(goal => goal.id !== goalIdToDelete))
+  }
+
   return (
     <div className="App">
       <h1>
@@ -55,6 +62,7 @@ function App() {
       <GoalsList 
         goalsList={goalsList}
         handleSlideChange={handleSlideChange} 
+        handleDelete={handleDelete}
       />
 
       <BottomMenu />
