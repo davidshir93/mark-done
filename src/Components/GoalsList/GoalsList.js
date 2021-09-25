@@ -2,22 +2,22 @@ import React from "react";
 import "./GoalsList.css";
 import Goal from "../Goal/Goal";
 
-const GoalsList = (props) => {
+const GoalsList = ({ goalsList, handleSlideChange, handleDelete }) => {
   return (
     <div>
-      {props.goalsList.map((goalItem) => {
+      {goalsList.map((goalItem) => {
         return (
           <Goal
-          goal={goalItem}
-          key={goalItem.name}
-          id={goalItem.id}
-          name={goalItem.name} 
-          goal={goalItem.goal}
-          measuring={goalItem.measuring} 
-          done={goalItem.done} 
-          goalFrequency={goalItem.goalFrequency}
-          handleSlideChange={props.handleSlideChange}
-          handleDelete={props.handleDelete}
+            goal={goalItem}
+            key={goalItem.name}
+            id={goalItem.id}
+            name={goalItem.name} 
+            goalValue={goalItem.goalValue}
+            measuring={goalItem.measuring} 
+            done={goalItem.done} 
+            goalFrequency={goalItem.goalFrequency}
+            handleSlideChange={handleSlideChange}
+            handleDelete={handleDelete}
           />
         );
       })}

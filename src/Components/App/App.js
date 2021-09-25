@@ -14,7 +14,7 @@ function App() {
       icon: "food",
       measuring: "grams",
       done: 55,
-      goal: 125,
+      goalValue: 125,
       goalFrequency: "day",
     },
     {
@@ -23,7 +23,7 @@ function App() {
       icon: "gym",
       measuring: "units",
       done: 1,
-      goal: 4,
+      goalValue: 4,
       goalFrequency: "week",
     },
     {
@@ -32,22 +32,21 @@ function App() {
       icon: "mind",
       measuring: "minutes",
       done: 10,
-      goal: 10,
+      goalValue: 10,
       goalFrequency: "day",
     },
-  ]);
+  ])
 
-  const handleSlideChange = (event) => {
-    setGoalsList((prevGoalsList) => {
-      return [
-        ...prevGoalsList,
-
-      ]
-    
-    })
+  const handleSlideChange = (event, goalIdToUpdate) => {
+    let newGoals = goalsList;
+    const updatedGoalIndex = newGoals.findIndex(goal => goal.id === goalIdToUpdate);
+    newGoals[updatedGoalIndex].done = event.target.value;
+    setGoalsList([...newGoals]);
   }
+  
 
   const handleDelete = (goalIdToDelete) => {
+    console.log(`Deleting goal with the ID of ${goalIdToDelete}`);
     setGoalsList(prev => prev.filter(goal => goal.id !== goalIdToDelete))
   }
 
