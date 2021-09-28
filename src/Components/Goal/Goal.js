@@ -1,16 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Goal.css";
 
 const Goal = ({ name, done, goalValue, measuring, id, color, handleDelete, handleSlideChange }) => {
 
-  let position = done / goalValue * 100;
-  let colorGradient = {background: `linear-gradient(90deg, ${color} ${position}%, silver ${position}%)`}
-  let sliderBackground = colorGradient;
-
-  useEffect(() => {
-    position = done / goalValue * 100;
-    colorGradient = {background: `linear-gradient(90deg, ${color} ${position}%, silver ${position}%)`};
-  }, [done]);
+  const position = done / goalValue * 100;
+  const sliderBackground = {background: `linear-gradient(90deg, ${color} ${position}%, silver ${position}%)`};
 
   return (
     <div className={`goal ${ done - goalValue >= 0 ? 'completed' : ''}`}>
