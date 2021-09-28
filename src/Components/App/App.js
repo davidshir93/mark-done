@@ -16,6 +16,7 @@ function App() {
       done: 55,
       goalValue: 125,
       goalFrequency: "day",
+      color: 'plum'
     },
     {
       id: 2,
@@ -25,6 +26,7 @@ function App() {
       done: 1,
       goalValue: 4,
       goalFrequency: "week",
+      color: 'orange'
     },
     {
       id: 3,
@@ -34,6 +36,7 @@ function App() {
       done: 10,
       goalValue: 10,
       goalFrequency: "day",
+      color: 'lightgreen'
     },
   ])
 

@@ -19,6 +19,7 @@ const GoalsList = ({ goalsList, handleSlideChange, handleDelete }) => {
             handleSlideChange={handleSlideChange}
             handleDelete={handleDelete}
             completed={goalItem.completed}
+            color={goalItem.color}
           />
         );
       })}
