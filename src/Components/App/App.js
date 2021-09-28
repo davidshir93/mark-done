@@ -38,6 +38,16 @@ function App() {
       goalFrequency: "day",
       color: 'lightgreen'
     },
+    {
+      id: 4,
+      name: "Go to the Ido",
+      icon: "mind",
+      measuring: "hours",
+      done: 80,
+      goalValue: 200,
+      goalFrequency: "day",
+      color: 'pink'
+    }
   ])
 
   const handleSlideChange = (event, goalIdToUpdate) => {
