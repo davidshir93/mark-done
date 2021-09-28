@@ -18,6 +18,7 @@ const GoalsList = ({ goalsList, handleSlideChange, handleDelete }) => {
             goalFrequency={goalItem.goalFrequency}
             handleSlideChange={handleSlideChange}
             handleDelete={handleDelete}
+            completed={goalItem.completed}
           />
         );
       })}
