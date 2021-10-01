@@ -25,9 +25,6 @@ const Goal = ({ name, done, goalValue, measuring, id, color, handleDelete, handl
               <h2>{done}</h2>
               <p>/ {goalValue} {measuring}</p>
           </div>
-          <button type="button" onClick={() => handleDelete(id)}>
-            <i className="fa fa-trash"></i>
-          </button>
         </div>
     </div>
   );

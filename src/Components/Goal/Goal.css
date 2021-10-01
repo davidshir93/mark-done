@@ -36,8 +36,9 @@
     display: inline-block;
 }
 
-.completed .goalName h2 {
-    text-decoration: line-through;
+.completed .goalName h2, .completed .goalName i {
+    /* text-decoration: line-through; */
+    opacity: 0.65;
 }
 
 

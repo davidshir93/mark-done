@@ -37,24 +37,33 @@ function App() {
       goalValue: 10,
       goalFrequency: "day",
       color: 'lightgreen'
-    },
-    {
-      id: 4,
-      name: "Go to the Ido",
-      icon: "mind",
-      measuring: "hours",
-      done: 80,
-      goalValue: 200,
-      goalFrequency: "day",
-      color: 'pink'
     }
   ])
+
+  const [listOrder, setListOrder] = useState('orginal')
+
+  const handleListOrderChange = () => {
+    if (listOrder !== 'original') {
+      let newList = [];
+      const notDone = goalsList.filter(goal => goal.goalValue - goal.done > 0);
+      const done = goalsList.filter(goal => goal.goalValue - goal.done <= 0);
+      notDone.forEach(goal => newList.push(goal))
+      done.forEach(goal => newList.push(goal))
+      setGoalsList(prev => newList);
+      setListOrder('dueDown');
+    } else {
+      let newList = goalsList.sort((a,b) => a.id - b.id);
+      setGoalsList(prev => newList);
+      setListOrder('original');
+    }
+  }
 
   const handleSlideChange = (event, goalIdToUpdate) => {
     let newGoals = goalsList;
     const updatedGoalIndex = newGoals.findIndex(goal => goal.id === goalIdToUpdate);
     newGoals[updatedGoalIndex].done = event.target.value;
     setGoalsList([...newGoals]);
+    handleListOrderChange();
   }
   
 
@@ -70,7 +79,10 @@ function App() {
       </h1>
       <WeekCircles />
       <Header />
-      <Filters />
+      <Filters 
+        listOrder={listOrder}
+        handleListOrderChange={handleListOrderChange} 
+      />
       <GoalsList 
         goalsList={goalsList}
         handleSlideChange={handleSlideChange} 
