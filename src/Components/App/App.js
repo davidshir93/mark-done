@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import WeekCircles from "../WeekCircles/WeekCircles";
 import Header from "../Header/Header";
@@ -7,6 +7,9 @@ import GoalsList from "../GoalsList/GoalsList";
 import BottomMenu from "../BottomMenu/BottomMenu";
 
 function App() {
+
+
+
   const [goalsList, setGoalsList] = useState([
     {
       id: 1,
@@ -40,7 +43,7 @@ function App() {
     }
   ])
 
-  const [listOrder, setListOrder] = useState('orginal')
+  const [listOrder, setListOrder] = useState('original')
 
   const handleListOrderChange = () => {
     if (listOrder !== 'original') {
@@ -72,6 +75,21 @@ function App() {
     setGoalsList(prev => prev.filter(goal => goal.id !== goalIdToDelete))
   }
 
+
+  useEffect(() => {
+    if (listOrder !== 'original') {
+      let newList = [];
+      const notDone = goalsList.filter(goal => goal.goalValue - goal.done > 0);
+      const done = goalsList.filter(goal => goal.goalValue - goal.done <= 0);
+      notDone.forEach(goal => newList.push(goal))
+      done.forEach(goal => newList.push(goal))
+      setGoalsList(prev => newList);
+    } else {
+      let newList = goalsList.sort((a,b) => a.id - b.id);
+      setGoalsList(prev => newList);
+    }
+  }, [listOrder])
+
   return (
     <div className="App">
       <h1>
@@ -81,6 +99,7 @@ function App() {
       <Header />
       <Filters 
         listOrder={listOrder}
+        setListOrder={setListOrder}
         handleListOrderChange={handleListOrderChange} 
       />
       <GoalsList 
