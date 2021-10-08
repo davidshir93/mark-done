@@ -5,7 +5,7 @@ const Filters = ({ listOrder, setListOrder }) => {
 
   const handleChange = () => {
     let newOrder;
-    if (listOrder==='original') {
+    if (listOrder === 'original') {
       newOrder = 'doneLast';
     } else {
       newOrder = 'original';

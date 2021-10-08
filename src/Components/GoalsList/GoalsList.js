@@ -3,14 +3,14 @@ import "./GoalsList.css";
 import Goal from "../Goal/Goal";
 import { motion } from "framer-motion"
 
-const GoalsList = ({ goalsList, handleSlideChange, handleDelete }) => {
+const GoalsList = ({ goalsList, goalsListSorted, handleSlideChange, handleDelete }) => {
   return (
       <motion.div 
         initial={{x: 100}}
         animate={{x: 0}}
         transition={{ duration: 0.35, staggerChildren: 1.1, type: 'tween'}}
       >
-        {goalsList.map((goalItem) => {
+        {goalsListSorted.map((goalItem) => {
           return (
             <motion.div>
               <Goal
