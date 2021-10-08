@@ -112,8 +112,6 @@ function App() {
     saveLocalGoals();
   }, [goalsList, listOrder])
 
-
-
   return (
     <div className="App">
       <WeekCircles />
