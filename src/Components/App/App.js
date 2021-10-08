@@ -73,6 +73,23 @@ function App() {
     setGoalsList(prev => prev.filter(goal => goal.id !== goalIdToDelete))
   }
 
+  const saveLocalGoals = () => {
+    localStorage.setItem('goalsList', JSON.stringify(goalsList))
+  }
+
+  const getLocalGoals = () => {
+    if (localStorage.getItem('goalsList') === null) {
+      return
+    } else {
+      let goalsFromLocal = localStorage.getItem('goalsList');
+      setGoalsList(JSON.parse(goalsFromLocal));
+    }
+  }
+
+  useEffect(() => {
+    getLocalGoals()
+  },[])
+
   useEffect(() => {
     let newList = [];
     switch (listOrder) {
@@ -92,7 +109,10 @@ function App() {
         setGoalsListSorted(prev => newList);
         break;
     }
+    saveLocalGoals();
   }, [goalsList, listOrder])
+
+
 
   return (
     <div className="App">

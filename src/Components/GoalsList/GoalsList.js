@@ -5,14 +5,18 @@ import { motion } from "framer-motion"
 
 const GoalsList = ({ goalsList, goalsListSorted, handleSlideChange, handleDelete }) => {
   return (
-      <motion.div 
+      <motion.ul 
         initial={{x: 100}}
         animate={{x: 0}}
         transition={{ duration: 0.35, staggerChildren: 1.1, type: 'tween'}}
       >
         {goalsListSorted.map((goalItem) => {
           return (
-            <motion.div>
+            <motion.li 
+              key={goalItem.name} 
+              layout
+              transition={{ duration: 0.35, staggerChildren: 1.1, type: 'tween'}}
+            >
               <Goal
               goal={goalItem}
               key={goalItem.name}
@@ -27,10 +31,10 @@ const GoalsList = ({ goalsList, goalsListSorted, handleSlideChange, handleDelete
               completed={goalItem.completed}
               color={goalItem.color}
             />
-          </motion.div>
+          </motion.li>
           )
         })}
-      </motion.div>
+      </motion.ul>
   );
 };
 
