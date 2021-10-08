@@ -1,3 +1,19 @@
+* {
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 2.33rem;
+}
+
+h2 {
+  font-size: 1.66rem;
+}
+
+.caption {
+  font-size: 0.66rem;
+}
+
 .App {
   max-width: 500px;
   margin: 0 auto;

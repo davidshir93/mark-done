@@ -13,13 +13,13 @@ const Filters = ({ listOrder, setListOrder }) => {
     setListOrder(newOrder)
   }
 
-  return <div>
+  return <div className="filters">
     <input 
       type="checkbox" 
       onChange={handleChange}
       default="unchecked"
     />
-      Seperate Done from Due
+    Show Due Goals First
   </div>;
 };
 

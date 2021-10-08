@@ -23,7 +23,7 @@ const Goal = ({ name, done, goalValue, measuring, id, color, handleDelete, handl
           </div>
           <div className="goalDetails">
               <h2>{done}</h2>
-              <p>/ {goalValue} {measuring}</p>
+              <p className="caption">/ {goalValue} {measuring}</p>
           </div>
         </div>
     </div>

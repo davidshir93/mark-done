@@ -96,9 +96,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>
-        <i class="fas fa-clipboard-check"></i> Mark-Done App
-      </h1>
       <WeekCircles />
       <Header />
       <Filters 
