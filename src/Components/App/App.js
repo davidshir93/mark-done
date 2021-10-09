@@ -68,6 +68,23 @@ function App() {
     setGoalsList([...newGoals]);
   }
 
+  const addNewGoal = (name, icon, measuring, goalValue, goalFrequency, color) => {
+    const id = new Date().getHours();
+    setGoalsList(prev => [
+      ...prev,
+      {
+        id: id,
+        name: name,
+        icon: icon,
+        measuring: measuring,
+        done: 0,
+        goalValue: goalValue,
+        goalFrequency: goalFrequency,
+        color: color
+      }
+    ])
+  }
+
   const handleDelete = (goalIdToDelete) => {
     console.log(`Deleting goal with the ID of ${goalIdToDelete}`);
     setGoalsList(prev => prev.filter(goal => goal.id !== goalIdToDelete))
@@ -124,7 +141,9 @@ function App() {
         handleDelete={handleDelete}
       />
 
-      <BottomMenu />
+      <BottomMenu 
+        addNewGoal={addNewGoal}
+      />
     </div>
   );
 }
