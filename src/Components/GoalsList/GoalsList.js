@@ -3,23 +3,44 @@ import "./GoalsList.css";
 import Goal from "../Goal/Goal";
 import { motion } from "framer-motion"
 
-const GoalsList = ({ goalsList, goalsListSorted, handleSlideChange, handleDelete }) => {
+const GoalsList = ({ goalsListSorted, handleSlideChange, handleDelete }) => {
+  
+  const variants = {
+    hidden: {opacity: 0},
+    show: {
+      opacity: 1,
+      transition: { duration: 0.35, staggerChildren: 0.1, delayChildren: 0.3, type: 'tween' }
+    },
+  }
+
+  const item = {
+    hidden: {
+      opacity: 0,
+      x: 75
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.35, type: 'tween', staggerChildren: 0.5, delayChildren: 0.3 },
+    },
+  }
+
   return (
-      <motion.ul 
-        initial={{x: 100}}
-        animate={{x: 0}}
-        transition={{ duration: 0.35, staggerChildren: 1.1, type: 'tween'}}
+      <motion.div 
+        variants={variants}
+        initial="hidden"
+        animate="show"
       >
         {goalsListSorted.map((goalItem) => {
           return (
-            <motion.li 
+            <motion.div 
               key={goalItem.name} 
               layout
-              transition={{ duration: 0.35, staggerChildren: 1.1, type: 'tween'}}
+              variants={item}
             >
               <Goal
               goal={goalItem}
-              key={goalItem.name}
+              // key={goalItem.name}
               id={goalItem.id}
               name={goalItem.name} 
               goalValue={goalItem.goalValue}
@@ -31,10 +52,10 @@ const GoalsList = ({ goalsList, goalsListSorted, handleSlideChange, handleDelete
               completed={goalItem.completed}
               color={goalItem.color}
             />
-          </motion.li>
+          </motion.div>
           )
         })}
-      </motion.ul>
+      </motion.div>
   );
 };
 

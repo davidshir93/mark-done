@@ -73,10 +73,6 @@ function App() {
     setGoalsList(prev => prev.filter(goal => goal.id !== goalIdToDelete))
   }
 
-  const saveLocalGoals = () => {
-    localStorage.setItem('goalsList', JSON.stringify(goalsList))
-  }
-
   const getLocalGoals = () => {
     if (localStorage.getItem('goalsList') === null) {
       return
@@ -109,7 +105,7 @@ function App() {
         setGoalsListSorted(prev => newList);
         break;
     }
-    saveLocalGoals();
+    localStorage.setItem('goalsList', JSON.stringify(goalsList));
   }, [goalsList, listOrder])
 
   return (

@@ -36,6 +36,11 @@
     display: inline-block;
 }
 
+.goalName {
+    display: flex;
+    align-items: center;
+}
+
 .completed .goalName h2, .completed .goalName i {
     /* text-decoration: line-through; */
     opacity: 0.65;
