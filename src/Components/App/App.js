@@ -69,6 +69,7 @@ function App() {
   }
 
   const addNewGoal = (name, icon, measuring, goalValue, goalFrequency, color) => {
+    console.log('adding new goal')
     const id = new Date().getHours();
     setGoalsList(prev => [
       ...prev,

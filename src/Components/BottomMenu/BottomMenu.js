@@ -1,14 +1,17 @@
 import React from "react";
 import "./BottomMenu.css";
 import NewGoalForm from "../NewGoalForm/NewGoalForm";
+import {FormContainer} from "../NewGoalForm/NewGoalForm.styled";
 
 const BottomMenu = ({ addNewGoal }) => {
   return (
     <div>
       add new goal
-      <NewGoalForm 
-        addNewGoal={addNewGoal}
-      />
+      <FormContainer>
+        <NewGoalForm 
+          addNewGoal={addNewGoal}
+        />
+      </FormContainer>
     </div>
   );
 };

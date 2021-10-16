@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import './NewGoalForm.css'
+// import './NewGoalForm.css'
 
 const NewGoalForm = ({ addNewGoal }) => {
     // name, icon, measuring, goalValue, goalFrequency, color
     const [name, setName] = useState('');
     const [icon, setIcon] = useState('');
-    const [measurement, setMeasurement] = useState('');
+    const [measurement, setMeasurement] = useState('Times');
     const [goalValue, setGoalValue] = useState('');
-    const [goalFrequency, setGoalFrequency] = useState('');
+    const [goalFrequency, setGoalFrequency] = useState('Day');
     const [color, setColor] = useState('');
 
     const handleNameChange = (e) => {
@@ -36,21 +36,42 @@ const NewGoalForm = ({ addNewGoal }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addNewGoal(name, icon, measurement, goalValue, goalFrequency, color)
+        addNewGoal(name, icon, measurement, goalValue, goalFrequency, color);
+        setName('');
+        setGoalValue('');
+        setMeasurement('');
+        setGoalFrequency('');
+        setIcon('');
+        setColor('');
     }
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>Goal Name:</label>
-            <input type="text" name={name} value={name} onChange={handleNameChange} placeholder="Goal Name"/>
+            <div className="firstRowLabels">
+                <label className="name">Goal Name:</label>
+            </div>
+            <div className="firstRow">
+                <input type="text" name={name} value={name} onChange={handleNameChange} placeholder="Goal Name"/>
+            </div>
             <div className="secRowLabels">
                 <label className="do">Do:</label>
                 <label className="per">Per:</label>
             </div>    
             <div className="secRow">
                 <input type="text" name={goalValue} value={goalValue} onChange={handleGoalValueChange} placeholder="Choose Goal Value"/>
-                <input type="text" name={measurement} value={measurement} onChange={handleMeasurementChange} placeholder="Choose Mesurement Unit"/>
-                <input type="text" name={goalFrequency} value={goalFrequency} onChange={handleGoalFrequencyChange} placeholder="Choose Frequency"/>
+                <select name={measurement} value={measurement} id="measurement" selected="Times" onChange={handleMeasurementChange} >
+                    <option value="Times">Times</option>
+                    <option value="Minutes">Minutes</option>
+                    <option value="Hours">Hours</option>
+                    <option value="Steps">Steps</option>
+                    <option value="Units">Units</option>
+                </select>
+                <select name={goalFrequency} value={goalFrequency} id="goalFrequency" selected="Day" onChange={handleGoalFrequencyChange} >
+                    <option value="Day">Day</option>
+                    <option value="Week">Week</option>
+                    <option value="Month">Month</option>
+                </select>
+                {/* <input type="text" name={goalFrequency} value={goalFrequency} onChange={handleGoalFrequencyChange} placeholder="Choose Frequency"/> */}
             </div>
             <div className="thirdRowLabels">
                 <label className="icon">Icon:</label>
