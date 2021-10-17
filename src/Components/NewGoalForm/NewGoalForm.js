@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 // import './NewGoalForm.css'
 
-const NewGoalForm = ({ addNewGoal }) => {
+const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
     // name, icon, measuring, goalValue, goalFrequency, color
     const [name, setName] = useState('');
     const [icon, setIcon] = useState('');
@@ -39,8 +39,8 @@ const NewGoalForm = ({ addNewGoal }) => {
         addNewGoal(name, icon, measurement, goalValue, goalFrequency, color);
         setName('');
         setGoalValue('');
-        setMeasurement('');
-        setGoalFrequency('');
+        setMeasurement('Times');
+        setGoalFrequency('Day');
         setIcon('');
         setColor('');
     }
@@ -71,7 +71,6 @@ const NewGoalForm = ({ addNewGoal }) => {
                     <option value="Week">Week</option>
                     <option value="Month">Month</option>
                 </select>
-                {/* <input type="text" name={goalFrequency} value={goalFrequency} onChange={handleGoalFrequencyChange} placeholder="Choose Frequency"/> */}
             </div>
             <div className="thirdRowLabels">
                 <label className="icon">Icon:</label>
@@ -82,7 +81,7 @@ const NewGoalForm = ({ addNewGoal }) => {
                 <input type="text" name={color} value={color} onChange={handleColorChange} placeholder="Choose Color"/>
             </div>
             <input type="submit" name="Add" />
-            <p>Cancel</p>
+            <p onClick={toggleShowForm}>Cancel</p>
         </form>
     )
 }

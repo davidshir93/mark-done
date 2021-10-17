@@ -74,7 +74,7 @@ function App() {
     setGoalsList(prev => [
       ...prev,
       {
-        id: id,
+        id: goalsList.length + 1,
         name: name,
         icon: icon,
         measuring: measuring,
@@ -98,6 +98,41 @@ function App() {
       let goalsFromLocal = localStorage.getItem('goalsList');
       setGoalsList(JSON.parse(goalsFromLocal));
     }
+  }
+
+  const resetToInitialState = () => {
+    setGoalsList([
+      {
+        id: 1,
+        name: "Eat Protein",
+        icon: "food",
+        measuring: "grams",
+        done: 55,
+        goalValue: 125,
+        goalFrequency: "day",
+        color: 'plum'
+      },
+      {
+        id: 2,
+        name: "Go to the Gym",
+        icon: "gym",
+        measuring: "units",
+        done: 1,
+        goalValue: 4,
+        goalFrequency: "week",
+        color: 'orange'
+      },
+      {
+        id: 3,
+        name: "Meditate",
+        icon: "mind",
+        measuring: "minutes",
+        done: 10,
+        goalValue: 10,
+        goalFrequency: "day",
+        color: 'lightgreen'
+      }
+    ])
   }
 
   useEffect(() => {
@@ -144,6 +179,7 @@ function App() {
 
       <BottomMenu 
         addNewGoal={addNewGoal}
+        resetToInitialState={resetToInitialState}
       />
     </div>
   );
