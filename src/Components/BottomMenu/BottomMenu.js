@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./BottomMenu.css";
 import NewGoalForm from "../NewGoalForm/NewGoalForm";
-import {FormContainer} from "../NewGoalForm/NewGoalForm.styled";
+import { FormContainer } from "../NewGoalForm/NewGoalForm.styled";
 
 const BottomMenu = ({ addNewGoal, resetToInitialState }) => {
 

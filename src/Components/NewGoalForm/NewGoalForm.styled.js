@@ -9,7 +9,7 @@ export const FormContainer = styled.div`
 
 
     label {
-        margin-top: 24px;
+        margin-top: 1.33rem;
     }
 
     .firstRowLabels, .secRowLabels, .thirdRowLabels {
@@ -38,7 +38,7 @@ export const FormContainer = styled.div`
 
 
     .secRow input:not(:last-child), .secRow select:not(:last-child), .thirdRow input:not(:last-child){
-        margin-right: 24px;
+        margin-right: 1.33rem;
     }
 
     input, select {
@@ -47,12 +47,12 @@ export const FormContainer = styled.div`
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 24px;
-        margin-top: 24px;
+        padding: 1.33rem;
+        margin-top: 1.33rem;
     }
 
     input[type="submit"] {
-        margin-top: 48px;
+        margin-top: 2.33rem;
         text-align: center;
         align-items: center;
         justify-content: center;
