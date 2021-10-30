@@ -6,8 +6,10 @@ export const FormContainer = styled.div`
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-
-
+    width: 100%;
+    form {
+        width: 100%;
+    }
     label {
         margin-top: 1.33rem;
     }

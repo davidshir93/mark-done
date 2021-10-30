@@ -43,6 +43,7 @@ const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
         setGoalFrequency('Day');
         setIcon('');
         setColor('');
+        toggleShowForm();
     }
 
     return (

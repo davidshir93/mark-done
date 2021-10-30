@@ -9,7 +9,7 @@ const GoalsList = ({ goalsListSorted, handleSlideChange, handleDelete }) => {
     hidden: {opacity: 0},
     show: {
       opacity: 1,
-      transition: { duration: 0.35, staggerChildren: 0.1, delayChildren: 0.3, type: 'tween' }
+      transition: { duration: 0.2, staggerChildren: 0.05, type: 'tween' }
     },
   }
 
@@ -21,7 +21,7 @@ const GoalsList = ({ goalsListSorted, handleSlideChange, handleDelete }) => {
     show: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.35, type: 'tween', staggerChildren: 0.5, delayChildren: 0.3 },
+      transition: { duration: 0.2, type: 'tween', staggerChildren: 0.05 },
     },
   }
 

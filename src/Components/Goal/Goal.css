@@ -41,9 +41,10 @@
     align-items: center;
 }
 
-.completed .goalName h2, .completed .goalName i {
+.completed .goalName h2::after {
     /* text-decoration: line-through; */
-    opacity: 0.65;
+    /* opacity: 0.65; */
+    content: " ✓"
 }
 
 

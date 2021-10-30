@@ -5,6 +5,8 @@ import Header from "../Header/Header";
 import Filters from "../Filters/Filters";
 import GoalsList from "../GoalsList/GoalsList";
 import BottomMenu from "../BottomMenu/BottomMenu";
+import NewGoalForm from "../NewGoalForm/NewGoalForm";
+import { FormContainer } from "../NewGoalForm/NewGoalForm.styled";
 
 function App() {
 
@@ -44,7 +46,12 @@ function App() {
   const [goalsListSorted, setGoalsListSorted] = useState([]);
 
   const [listOrder, setListOrder] = useState('original')
+  
+  const [showForm, setShowForm] = useState(false);
 
+  const toggleShowForm = () => {
+    setShowForm(!showForm);
+  }
   const handleListOrderChange = () => {
     if (listOrder !== 'original') {
       let newList = [];
@@ -162,24 +169,40 @@ function App() {
 
   return (
     <div className="App">
-      <WeekCircles />
-      <Header />
-      <Filters 
-        listOrder={listOrder}
-        setListOrder={setListOrder}
-        handleListOrderChange={handleListOrderChange} 
-      />
-      <GoalsList 
-        goalsList={goalsList}
-        goalsListSorted={goalsListSorted}
-        handleSlideChange={handleSlideChange} 
-        handleDelete={handleDelete}
-      />
+      { showForm === true && 
+      <>
+        <Header 
+          title="Add a New Goal"
+        />
+        <FormContainer>
+          <NewGoalForm 
+            addNewGoal={addNewGoal}
+            toggleShowForm={toggleShowForm}
+          />
+        </FormContainer> </>}
+      {
+        showForm === false &&
+        <>
+          <WeekCircles />
+          <Header />
+          <Filters 
+            listOrder={listOrder}
+            setListOrder={setListOrder}
+            handleListOrderChange={handleListOrderChange} 
+          />
+          <GoalsList 
+            goalsList={goalsList}
+            goalsListSorted={goalsListSorted}
+            handleSlideChange={handleSlideChange} 
+            handleDelete={handleDelete}
+          />
 
-      <BottomMenu 
-        addNewGoal={addNewGoal}
-        resetToInitialState={resetToInitialState}
-      />
+          <BottomMenu 
+            toggleShowForm={toggleShowForm}
+            resetToInitialState={resetToInitialState}
+          /> 
+          </>}
+      
     </div>
   );
 }
