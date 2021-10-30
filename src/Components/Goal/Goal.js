@@ -4,7 +4,7 @@ import "./Goal.css";
 const Goal = ({ name, done, goalValue, measuring, id, color, goalFrequency, handleDelete, handleSlideChange }) => {
 
   const position = done / goalValue * 100;
-  const sliderBackground = {background: `linear-gradient(90deg, ${color} ${position}%, silver ${position}%)`};
+  const sliderBackground = {background: `linear-gradient(90deg, ${color} ${position}%, #DADADA ${position}%)`};
 
   return (
     <div className={`goal ${ done - goalValue >= 0 ? 'completed' : ''}`}>

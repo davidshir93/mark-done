@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 // import './NewGoalForm.css'
+import { CirclePicker } from 'react-color';
 
 const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
     // name, icon, measuring, goalValue, goalFrequency, color
@@ -30,8 +31,8 @@ const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
         setGoalFrequency(e.target.value)
     }
 
-    const handleColorChange = (e) => {
-        setColor(e.target.value)
+    const handleChangeComplete = (color) => {
+        setColor(color.hex)
     }
 
     const handleSubmit = (e) => {
@@ -79,7 +80,14 @@ const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
             </div>    
             <div className="thirdRow">
                 <input type="text" name={icon} value={icon} onChange={handleIconChange} placeholder="Choose Icon"/>
-                <input type="text" name={color} value={color} onChange={handleColorChange} placeholder="Choose Color"/>
+                {/* <input type="text" class="colorField" name={color} value={color} onChange={handleColorChange} placeholder="Choose Color"/> */}
+                <CirclePicker
+                    width={"100%"}
+                    // colors={["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#607d8b"]}
+                    // circleSize={"2rem"}
+                    // circleSpacing={"1.33rem"}
+                    onChangeComplete={ handleChangeComplete }
+                />
             </div>
             <input type="submit" name="Add" />
             <p onClick={toggleShowForm}>Cancel</p>

@@ -19,7 +19,7 @@ function App() {
       done: 55,
       goalValue: 125,
       goalFrequency: "day",
-      color: 'plum'
+      color: '#2196f3'
     },
     {
       id: 2,
@@ -29,7 +29,7 @@ function App() {
       done: 1,
       goalValue: 4,
       goalFrequency: "week",
-      color: 'orange'
+      color: '#4caf50'
     },
     {
       id: 3,
@@ -39,7 +39,7 @@ function App() {
       done: 10,
       goalValue: 10,
       goalFrequency: "day",
-      color: 'lightgreen'
+      color: '#ffeb3b'
     }
   ])
 
@@ -116,7 +116,7 @@ function App() {
         done: 55,
         goalValue: 125,
         goalFrequency: "day",
-        color: 'plum'
+        color: '#2196f3'
       },
       {
         id: 2,
@@ -126,7 +126,7 @@ function App() {
         done: 1,
         goalValue: 4,
         goalFrequency: "week",
-        color: 'orange'
+        color: '#4caf50'
       },
       {
         id: 3,
@@ -136,7 +136,7 @@ function App() {
         done: 10,
         goalValue: 10,
         goalFrequency: "day",
-        color: 'lightgreen'
+        color: '#ffeb3b'
       }
     ])
   }

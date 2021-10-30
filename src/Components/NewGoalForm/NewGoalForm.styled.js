@@ -38,6 +38,9 @@ export const FormContainer = styled.div`
         display: flex;
     }
 
+    .circle-picker {
+        margin-top: 1.33rem;
+    }
 
     .secRow input:not(:last-child), .secRow select:not(:last-child), .thirdRow input:not(:last-child){
         margin-right: 1.33rem;
