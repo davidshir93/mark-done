@@ -43,6 +43,7 @@ const GoalsList = ({ goalsListSorted, handleSlideChange, handleDelete }) => {
               // key={goalItem.name}
               id={goalItem.id}
               name={goalItem.name} 
+              icon={goalItem.icon}
               goalValue={goalItem.goalValue}
               measuring={goalItem.measuring} 
               done={goalItem.done} 

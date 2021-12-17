@@ -14,7 +14,7 @@ function App() {
     {
       id: 1,
       name: "Eat Protein",
-      icon: "food",
+      icon: "fas fa-camera",
       measuring: "grams",
       done: 55,
       goalValue: 125,
@@ -24,7 +24,7 @@ function App() {
     {
       id: 2,
       name: "Go to the Gym",
-      icon: "gym",
+      icon: "fas fa-camera",
       measuring: "units",
       done: 1,
       goalValue: 4,
@@ -34,7 +34,7 @@ function App() {
     {
       id: 3,
       name: "Meditate",
-      icon: "mind",
+      icon: "fas fa-camera",
       measuring: "minutes",
       done: 10,
       goalValue: 10,
@@ -111,7 +111,7 @@ function App() {
       {
         id: 1,
         name: "Eat Protein",
-        icon: "food",
+        icon: "fas fa-camera",
         measuring: "grams",
         done: 55,
         goalValue: 125,
@@ -121,7 +121,7 @@ function App() {
       {
         id: 2,
         name: "Go to the Gym",
-        icon: "gym",
+        icon: "fas fa-camera",
         measuring: "units",
         done: 1,
         goalValue: 4,
@@ -131,7 +131,7 @@ function App() {
       {
         id: 3,
         name: "Meditate",
-        icon: "mind",
+        icon: "fas fa-camera",
         measuring: "minutes",
         done: 10,
         goalValue: 10,

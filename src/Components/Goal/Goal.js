@@ -1,7 +1,7 @@
 import React from "react";
 import "./Goal.css";
 
-const Goal = ({ name, done, goalValue, measuring, id, color, goalFrequency, handleDelete, handleSlideChange }) => {
+const Goal = ({ name, done, icon, goalValue, measuring, id, color, goalFrequency, handleDelete, handleSlideChange }) => {
 
   const position = done / goalValue * 100;
   const sliderBackground = {background: `linear-gradient(90deg, ${color} ${position}%, #DADADA ${position}%)`};
@@ -19,7 +19,7 @@ const Goal = ({ name, done, goalValue, measuring, id, color, goalFrequency, hand
         />
         <div className="goalElementsContainer">
           <div className="goalName">
-          <i className="fas fa-atom"></i><h2>{name}</h2>
+          <i className={icon}></i><h2>{name}</h2>
           </div>
           <div className="goalDetails">
               <h2>{done}</h2>

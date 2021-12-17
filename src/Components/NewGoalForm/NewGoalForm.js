@@ -1,6 +1,14 @@
 import React, { useState } from 'react'
 // import './NewGoalForm.css'
 import { CirclePicker } from 'react-color';
+import IconPicker from '@kevinpaulconnor/react-icon-picker';
+
+const icons = [
+    'fas fa-camera',
+    'fas fa-fish',
+    'fas fa-align-center',
+    'fas fa-align-justify'
+  ];  
 
 const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
     // name, icon, measuring, goalValue, goalFrequency, color
@@ -79,7 +87,15 @@ const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
                 <label className="color">Color:</label>
             </div>    
             <div className="thirdRow">
-                <input type="text" name={icon} value={icon} onChange={handleIconChange} placeholder="Choose Icon"/>
+                {/* <input type="text" name={icon} value={icon} onChange={handleIconChange} placeholder="Choose Icon"/> */}
+                {/* <span className={icon}></span> */}
+                <IconPicker 
+                    icons={icons} 
+                    defaultValue="fas fa-camera" 
+                    onChange={(icon) => {
+                        setIcon(icon)
+                    }}
+                />
                 {/* <input type="text" class="colorField" name={color} value={color} onChange={handleColorChange} placeholder="Choose Color"/> */}
                 <CirclePicker
                     width={"100%"}
