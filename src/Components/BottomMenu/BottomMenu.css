@@ -6,6 +6,12 @@
 .bottom-menu-container .fas {
 	font-size: 2rem;
 	padding: 1rem;
-	margin-top: 1rem;
+	cursor: pointer;
+}
+
+.text-and-icon-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	cursor: pointer;
 }
