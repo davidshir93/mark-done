@@ -7,7 +7,7 @@ import GoalsList from '../GoalsList/GoalsList';
 import BottomMenu from '../BottomMenu/BottomMenu';
 import NewGoalForm from '../NewGoalForm/NewGoalForm';
 import { FormContainer } from '../NewGoalForm/NewGoalForm.styled';
-import { motion, transform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 function App() {
 	const [goalsList, setGoalsList] = useState([

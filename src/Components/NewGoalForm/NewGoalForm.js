@@ -24,9 +24,9 @@ const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
 		setName(e.target.value);
 	};
 
-	const handleIconChange = (e) => {
-		setIcon(e.target.value);
-	};
+	// const handleIconChange = (e) => {
+	// 	setIcon(e.target.value);
+	// };
 
 	const handleMeasurementChange = (e) => {
 		setMeasurement(e.target.value);
