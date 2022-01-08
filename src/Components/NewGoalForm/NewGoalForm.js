@@ -135,8 +135,10 @@ const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
 					onChangeComplete={handleChangeComplete}
 				/>
 			</div>
-			<input type="submit" name="Add" />
-			<p onClick={toggleShowForm}>Cancel</p>
+			<input type="submit" name="Add" style={{ cursor: 'pointer' }} />
+			<p onClick={toggleShowForm} style={{ cursor: 'pointer' }}>
+				Cancel
+			</p>
 		</form>
 	);
 };

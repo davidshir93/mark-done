@@ -7,6 +7,7 @@ import GoalsList from '../GoalsList/GoalsList';
 import BottomMenu from '../BottomMenu/BottomMenu';
 import NewGoalForm from '../NewGoalForm/NewGoalForm';
 import { FormContainer } from '../NewGoalForm/NewGoalForm.styled';
+import { motion, transform } from 'framer-motion';
 
 function App() {
 	const [goalsList, setGoalsList] = useState([
@@ -181,10 +182,19 @@ function App() {
 		localStorage.setItem('goalsList', JSON.stringify(goalsList));
 	}, [goalsList, listOrder]);
 
+	const variants = {
+		hidden: { opacity: 0, x: '100vw' },
+		show: {
+			opacity: 1,
+			x: '0%',
+			transition: { duration: 0.2, type: 'tween' },
+		},
+	};
+
 	return (
 		<div className="App">
 			{showForm === true && (
-				<>
+				<motion.div variants={variants} initial="hidden" animate="show">
 					<Header title="Add a New Goal" />
 					<FormContainer>
 						<NewGoalForm
@@ -192,10 +202,10 @@ function App() {
 							toggleShowForm={toggleShowForm}
 						/>
 					</FormContainer>{' '}
-				</>
+				</motion.div>
 			)}
 			{showForm === false && (
-				<>
+				<motion.div variants={variants} initial="hidden" animate="show">
 					<WeekCircles />
 					<Header />
 					<Filters
@@ -214,7 +224,7 @@ function App() {
 						toggleShowForm={toggleShowForm}
 						resetToInitialState={resetToInitialState}
 					/>
-				</>
+				</motion.div>
 			)}
 		</div>
 	);

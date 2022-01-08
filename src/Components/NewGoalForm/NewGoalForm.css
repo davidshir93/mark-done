@@ -1,64 +1,67 @@
 form {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
 }
 
 label {
-    margin-top: 24px;
+	margin-top: 24px;
 }
 
-.secRowLabels, .thirdRowLabels {
-    width: 100%;
-    display: flex;
+.secRowLabels,
+.thirdRowLabels {
+	width: 100%;
+	display: flex;
 }
 
 .do {
-    /* flex-basis: 2; */
-    flex-grow: 0.725;
+	/* flex-basis: 2; */
+	flex-grow: 0.725;
 }
 
 .per {
-    flex-flow: 1;
-    /* flex-basis: 1; */
+	flex-flow: 1;
+	/* flex-basis: 1; */
 }
 
 .icon {
-    flex-grow: 0.55;
+	flex-grow: 0.55;
 }
 
-.secRow, .thirdRow {
-    width: 100%;
-    display: flex;
+.secRow,
+.thirdRow {
+	width: 100%;
+	display: flex;
 }
 
-
-.secRow input:not(:last-child), .thirdRow input:not(:last-child){
-    margin-right: 24px;
+.secRow input:not(:last-child),
+.thirdRow input:not(:last-child) {
+	margin-right: 24px;
 }
 
 input {
-    border-radius: 16px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 24px;
-    margin-top: 24px;
+	border-radius: 16px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 24px;
+	margin-top: 24px;
 }
 
-input[type="submit"] {
-    margin-top: 48px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-    color: white;
+input[type='submit'] {
+	margin-top: 48px;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	background-color: black;
+	color: white;
+	cursor: pointer;
 }
 
 p {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
 }

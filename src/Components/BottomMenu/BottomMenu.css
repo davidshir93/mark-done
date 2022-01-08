@@ -1,5 +1,11 @@
 .bottom-menu-container {
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-evenly;
+}
 
+.bottom-menu-container .fas {
+	font-size: 2rem;
+	padding: 1rem;
+	margin-top: 1rem;
+	cursor: pointer;
 }
