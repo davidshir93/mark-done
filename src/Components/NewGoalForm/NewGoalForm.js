@@ -19,9 +19,12 @@ const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
 	const [goalValue, setGoalValue] = useState('');
 	const [goalFrequency, setGoalFrequency] = useState('Day');
 	const [color, setColor] = useState('');
+	const [nameError, setNameError] = useState(null);
+	const [goalValueError, setGoalValueError] = useState(null);
 
 	const handleNameChange = (e) => {
 		setName(e.target.value);
+		validateName();
 	};
 
 	// const handleIconChange = (e) => {
@@ -34,6 +37,7 @@ const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
 
 	const handleGoalValueChange = (e) => {
 		setGoalValue(e.target.value);
+		validateGoalValue();
 	};
 
 	const handleGoalFrequencyChange = (e) => {
@@ -44,16 +48,50 @@ const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
 		setColor(color.hex);
 	};
 
+	const validateName = () => {
+		if (name.length < 3) {
+			setNameError('Please enter a goal name with at least 3 characters');
+		} else {
+			setNameError(null);
+		}
+		return;
+	};
+
+	const validateGoalValue = () => {
+		if (goalValue <= 0) {
+			setGoalValueError('Please enter a number above 0');
+		} else {
+			setGoalValueError(null);
+		}
+		return;
+	};
+
+	const validateForm = () => {
+		validateName();
+		validateGoalValue();
+		const formIsValid = nameError === null && goalValueError === null;
+		return formIsValid;
+	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		addNewGoal(name, icon, measurement, goalValue, goalFrequency, color);
-		setName('');
-		setGoalValue('');
-		setMeasurement('Times');
-		setGoalFrequency('Day');
-		setIcon('');
-		setColor('');
-		toggleShowForm();
+		validateForm();
+		const isValid = validateForm();
+		console.log(isValid);
+		setTimeout(() => {
+			if (isValid) {
+				addNewGoal(name, icon, measurement, goalValue, goalFrequency, color);
+				setName('');
+				setGoalValue('');
+				setMeasurement('Times');
+				setGoalFrequency('Day');
+				setIcon('');
+				setColor('');
+				toggleShowForm();
+			} else {
+				return;
+			}
+		}, 1000);
 	};
 
 	return (
@@ -61,6 +99,7 @@ const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
 			<div className="firstRowLabels">
 				<label className="name">Goal Name:</label>
 			</div>
+			<div className="error">{nameError}</div>
 			<div className="firstRow">
 				<input
 					type="text"
@@ -71,12 +110,17 @@ const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
 				/>
 			</div>
 			<div className="secRowLabels">
-				<label className="do">Do:</label>
-				<label className="per">Per:</label>
+				<div className="do">
+					<label>Do:</label>
+					<div className="error">{goalValueError}</div>
+				</div>
+				<div className="per">
+					<label>Per:</label>
+				</div>
 			</div>
 			<div className="secRow">
 				<input
-					type="text"
+					type="number"
 					name={goalValue}
 					value={goalValue}
 					onChange={handleGoalValueChange}

@@ -91,7 +91,7 @@ function App() {
 		setGoalsList((prev) => [
 			...prev,
 			{
-				id: goalsList.length + 1,
+				id: new Date().valueOf(),
 				name: name,
 				icon: icon,
 				measuring: measuring,

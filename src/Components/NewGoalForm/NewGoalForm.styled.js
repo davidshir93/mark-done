@@ -9,7 +9,8 @@ export const FormContainer = styled.div`
 	form {
 		width: 100%;
 	}
-	label {
+	label,
+	.secRowLabels {
 		margin-top: 1.33rem;
 	}
 
@@ -98,5 +99,10 @@ export const FormContainer = styled.div`
 		text-align: center;
 		align-items: center;
 		justify-content: center;
+	}
+
+	.error {
+		color: red;
+		font-size: 0.75rem;
 	}
 `;
