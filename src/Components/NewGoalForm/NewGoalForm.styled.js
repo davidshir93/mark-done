@@ -104,5 +104,7 @@ export const FormContainer = styled.div`
 	.error {
 		color: red;
 		font-size: 0.75rem;
+		transition: all 250ms ease-out;
+		transform-origin: top;
 	}
 `;

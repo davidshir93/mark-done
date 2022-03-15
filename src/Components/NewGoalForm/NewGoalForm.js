@@ -13,85 +13,94 @@ const icons = [
 
 const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
 	// name, icon, measuring, goalValue, goalFrequency, color
-	const [name, setName] = useState('');
-	const [icon, setIcon] = useState('fa-bullseye');
-	const [measurement, setMeasurement] = useState('Times');
-	const [goalValue, setGoalValue] = useState('');
-	const [goalFrequency, setGoalFrequency] = useState('Day');
-	const [color, setColor] = useState('');
-	const [nameError, setNameError] = useState(null);
-	const [goalValueError, setGoalValueError] = useState(null);
-
-	const handleNameChange = (e) => {
-		setName(e.target.value);
-		validateName();
+	const initialState = {
+		name: '',
+		icon: 'fa-bullseye',
+		measurement: 'Times',
+		goalValue: '',
+		goalFrequency: 'Day',
+		color: '#607d8b',
+		nameError: '',
+		goalValueError: '',
 	};
+	const [formValues, setFormValues] = useState(initialState);
+	// const [name, setName] = useState('');
+	// const [icon, setIcon] = useState('fa-bullseye');
+	// const [measurement, setMeasurement] = useState('Times');
+	// const [goalValue, setGoalValue] = useState('');
+	// const [goalFrequency, setGoalFrequency] = useState('Day');
+	// const [color, setColor] = useState('#607d8b');
+	// const [nameError, setNameError] = useState('');
+	// const [goalValueError, setGoalValueError] = useState('');
+
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		console.log(e);
+		setFormValues({ ...formValues, [name]: value });
+		console.log(formValues);
+	};
+
+	// const handleNameChange = (e) => {
+	// 	setName(e.target.value);
+	// 	validateName();
+	// };
 
 	// const handleIconChange = (e) => {
 	// 	setIcon(e.target.value);
 	// };
 
-	const handleMeasurementChange = (e) => {
-		setMeasurement(e.target.value);
-	};
+	// const handleMeasurementChange = (e) => {
+	// 	setMeasurement(e.target.value);
+	// };
 
-	const handleGoalValueChange = (e) => {
-		setGoalValue(e.target.value);
-		validateGoalValue();
-	};
+	// const handleGoalValueChange = (e) => {
+	// 	setGoalValue(e.target.value);
+	// 	validateGoalValue();
+	// };
 
-	const handleGoalFrequencyChange = (e) => {
-		setGoalFrequency(e.target.value);
-	};
+	// const handleGoalFrequencyChange = (e) => {
+	// 	setGoalFrequency(e.target.value);
+	// };
 
 	const handleChangeComplete = (color) => {
-		setColor(color.hex);
+		setFormValues({ ...formValues, color: color.hex });
 	};
 
-	const validateName = () => {
-		if (name.length < 3) {
-			setNameError('Please enter a goal name with at least 3 characters');
-		} else {
-			setNameError(null);
-		}
-		return;
-	};
+	// const validateName = () => {
+	// 	if (name.length < 3) {
+	// 		setNameError('Please enter a goal name with at least 3 characters');
+	// 	} else {
+	// 		setNameError('');
+	// 	}
+	// 	return;
+	// };
 
-	const validateGoalValue = () => {
-		if (goalValue <= 0) {
-			setGoalValueError('Please enter a number above 0');
-		} else {
-			setGoalValueError(null);
-		}
-		return;
-	};
+	// const validateGoalValue = () => {
+	// 	if (goalValue <= 0 || !goalValue) {
+	// 		setGoalValueError('Please enter a number above 0');
+	// 	} else {
+	// 		setGoalValueError('');
+	// 	}
+	// 	return;
+	// };
 
-	const validateForm = () => {
-		validateName();
-		validateGoalValue();
-		const formIsValid = nameError === null && goalValueError === null;
-		return formIsValid;
-	};
+	const handleSubmit = (event) => {
+		event.preventDefault();
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		validateForm();
-		const isValid = validateForm();
-		console.log(isValid);
-		setTimeout(() => {
-			if (isValid) {
-				addNewGoal(name, icon, measurement, goalValue, goalFrequency, color);
-				setName('');
-				setGoalValue('');
-				setMeasurement('Times');
-				setGoalFrequency('Day');
-				setIcon('');
-				setColor('');
-				toggleShowForm();
-			} else {
-				return;
-			}
-		}, 1000);
+		// let isValid = validateForm();
+		// console.log(isValid);
+		// if (isValid) {
+		// 	addNewGoal(name, icon, measurement, goalValue, goalFrequency, color);
+		// 	setName('');
+		// 	setGoalValue('');
+		// 	setMeasurement('Times');
+		// 	setGoalFrequency('Day');
+		// 	setIcon('');
+		// 	setColor('#607d8b');
+		// 	toggleShowForm();
+		// } else {
+		// 	return;
+		// }
 	};
 
 	return (
@@ -99,20 +108,33 @@ const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
 			<div className="firstRowLabels">
 				<label className="name">Goal Name:</label>
 			</div>
-			<div className="error">{nameError}</div>
+			<div
+				className="error"
+				style={{
+					transform: formValues.nameError !== '' ? 'scaleY(1)' : 'scaleY(0)',
+				}}>
+				{formValues.nameError}
+			</div>
 			<div className="firstRow">
 				<input
-					type="text"
-					name={name}
-					value={name}
-					onChange={handleNameChange}
+					type="textbox"
+					name="name"
+					value={formValues.name}
+					onChange={handleChange}
 					placeholder="Goal Name"
 				/>
 			</div>
 			<div className="secRowLabels">
 				<div className="do">
 					<label>Do:</label>
-					<div className="error">{goalValueError}</div>
+					<div
+						className="error"
+						style={{
+							transform:
+								formValues.goalValueError !== '' ? 'scaleY(1)' : 'scaleY(0)',
+						}}>
+						{formValues.goalValueError}
+					</div>
 				</div>
 				<div className="per">
 					<label>Per:</label>
@@ -120,18 +142,19 @@ const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
 			</div>
 			<div className="secRow">
 				<input
+					name="goalValue"
+					id="goalValue"
 					type="number"
-					name={goalValue}
-					value={goalValue}
-					onChange={handleGoalValueChange}
+					value={formValues.goalValue}
+					onChange={handleChange}
 					placeholder="Choose Goal Value"
 				/>
 				<select
-					name={measurement}
-					value={measurement}
+					name="measurement"
+					value={formValues.measurement}
 					id="measurement"
 					selected="Times"
-					onChange={handleMeasurementChange}>
+					onChange={handleChange}>
 					<option value="Times">Times</option>
 					<option value="Minutes">Minutes</option>
 					<option value="Hours">Hours</option>
@@ -139,11 +162,11 @@ const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
 					<option value="Units">Units</option>
 				</select>
 				<select
-					name={goalFrequency}
-					value={goalFrequency}
+					name="goalFrequency"
+					value={formValues.goalFrequency}
 					id="goalFrequency"
 					selected="Day"
-					onChange={handleGoalFrequencyChange}>
+					onChange={handleChange}>
 					<option value="Day">Day</option>
 					<option value="Week">Week</option>
 					<option value="Month">Month</option>
@@ -154,18 +177,15 @@ const NewGoalForm = ({ addNewGoal, toggleShowForm }) => {
 				<label className="color">Color:</label>
 			</div>
 			<div className="thirdRow">
-				{/* <input type="text" name={icon} value={icon} onChange={handleIconChange} placeholder="Choose Icon"/> */}
-
-				{/* <span className={icon}></span> */}
 				<div className="iconsContainer">
 					{icons.map((iconClassName) => {
 						return (
 							<div
 								key={iconClassName}
 								className={`iconItem fas ${iconClassName} ${
-									iconClassName === icon ? 'selected' : ''
+									iconClassName === formValues.icon ? 'selected' : ''
 								}`}
-								onClick={() => setIcon(iconClassName)}
+								onClick={() => handleChange(iconClassName)}
 							/>
 						);
 					})}
